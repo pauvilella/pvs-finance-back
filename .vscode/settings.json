@@ -20,6 +20,11 @@
     },
     "peacock.color": "#00c6c7",
     "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--config=./setup.cfg"
+    ],
     "python.formatting.provider": "black",
     "editor.defaultFormatter": null,
     "editor.formatOnSave": true
