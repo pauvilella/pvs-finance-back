@@ -19,6 +19,7 @@
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#00c6c7",
+    "python.terminal.activateEnvInCurrentTerminal": true,
     "python.formatting.provider": "black",
     "editor.defaultFormatter": null,
     "editor.formatOnSave": true
