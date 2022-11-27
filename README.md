@@ -10,3 +10,8 @@ docker-compose up
 ```
 
 Then, the backend runs in http://localhost:7777
+
+Format all the project in the beggining:
+```bash
+black .
+```
