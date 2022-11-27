@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  pvs-finance-back:
+    container_name: pvs-finance-back
+    build: .
+    env_file:
+      - env-local
+    volumes:
+      - .:/app
+    ports:
+      - 7777:80
+    depends_on:
+      - pvs-finance-db
+    command: python manage.py runserver 0.0.0.0:80
+
+  pvs-finance-db:
+    container_name: pvs-finance-db
+    image: postgres:13.7
+    env_file:
+      - env-local
+    volumes:
+      - pvs-finance-db-data:/var/lib/postgresql/data:delegated
+
+volumes:
+  pvs-finance-db-data:
