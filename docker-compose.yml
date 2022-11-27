@@ -3,7 +3,10 @@ version: '3.7'
 services:
   pvs-finance-back:
     container_name: pvs-finance-back
-    build: .
+    build:
+      context: .
+      args:
+        - POETRY_DEV=true
     env_file:
       - env-local
     volumes:
