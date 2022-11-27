@@ -1,3 +1,16 @@
+[tool.black]
+line-length = 120
+target-version = ['py310']
+exclude = '''
+(
+  /(
+      \.git
+    | \.venv
+    | migrations
+  )/
+)
+'''
+
 [tool.poetry]
 name = "pvs-finance-back"
 version = "0.1.0"
@@ -9,6 +22,7 @@ readme = "README.md"
 python = "^3.10"
 Django = "^4.1.3"
 psycopg2-binary = "^2.9.5"
+black = "^22.10.0"
 
 [build-system]
 requires = ["poetry-core"]
