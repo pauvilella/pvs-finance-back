@@ -15,3 +15,8 @@ Format all the project in the beggining:
 ```bash
 black .
 ```
+
+Create the first app
+```bash
+python manage.py startapp accounts
+```
