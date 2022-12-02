@@ -5,7 +5,7 @@ PVS Finance project - backend
 ```bash
 poetry install
 poetry add black --group dev
-docker-compose run pvs-finance-back django-admin startproject back .
+docker-compose run --rm app bash -c "django-admin startproject app ."
 docker-compose build
 docker-compose up
 ```
@@ -17,7 +17,12 @@ Format all the project in the beggining:
 black .
 ```
 
-Create the first app
+Test command (out-of-the-box Django Test Framework):
 ```bash
-python manage.py startapp accounts
+docker-compose run --rm app bash -c "python manage.py test"
+```
+
+Lint command:
+```bash
+docker-compose run --rm app bash -c "flake8"
 ```
