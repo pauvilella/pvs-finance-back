@@ -1,8 +1,8 @@
-version: '3.7'
+version: '3.9'
 
 services:
-  pvs-finance-back:
-    container_name: pvs-finance-back
+  app:
+    container_name: app
     build:
       context: .
       args:
@@ -10,20 +10,21 @@ services:
     env_file:
       - env-local
     volumes:
-      - .:/app
+      - ./app:/app
     ports:
       - 7777:80
-    depends_on:
-      - pvs-finance-db
-    command: python manage.py runserver 0.0.0.0:80
+    # depends_on:
+    #   - db
+    command: >
+      bash -c "python manage.py runserver 0.0.0.0:80"
 
-  pvs-finance-db:
-    container_name: pvs-finance-db
-    image: postgres:13.7
-    env_file:
-      - env-local
-    volumes:
-      - pvs-finance-db-data:/var/lib/postgresql/data:delegated
+#   db:
+#     container_name: db
+#     image: postgres:13.7
+#     env_file:
+#       - env-local
+#     volumes:
+#       - db-data:/var/lib/postgresql/data:delegated
 
-volumes:
-  pvs-finance-db-data:
+# volumes:
+#   db-data:

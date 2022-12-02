@@ -4,6 +4,7 @@ PVS Finance project - backend
 ### Commands used:
 ```bash
 poetry install
+poetry add black --group dev
 docker-compose run pvs-finance-back django-admin startproject back .
 docker-compose build
 docker-compose up
