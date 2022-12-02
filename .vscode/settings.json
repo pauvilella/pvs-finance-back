@@ -27,5 +27,6 @@
         "--config=./app/.flake8"
     ],
     "python.formatting.provider": "black",
-    "editor.defaultFormatter": null
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": true
 }
