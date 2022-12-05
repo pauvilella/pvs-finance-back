@@ -28,5 +28,6 @@
     ],
     "python.formatting.provider": "black",
     "editor.defaultFormatter": null,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true
 }
