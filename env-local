@@ -1,5 +1,10 @@
-POSTGRES_NAME=postgres
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_HOST=pvs-finance-db
-POSTGRES_PORT=5432
+# Used for PostgreSQL container
+POSTGRES_DB=devdb
+POSTGRES_USER=devuser
+POSTGRES_PASSWORD=changeme
+
+# Used for Django container
+DB_HOST=db
+DB_NAME=devdb
+DB_USER=devuser
+DB_PASS=changeme

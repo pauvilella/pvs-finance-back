@@ -13,18 +13,20 @@ services:
       - ./app:/app
     ports:
       - 7777:80
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     command: >
-      bash -c "python manage.py runserver 0.0.0.0:80"
+      bash -c "python manage.py wait_for_db &&
+               python manage.py migrate &&
+               python manage.py runserver 0.0.0.0:80"
 
-#   db:
-#     container_name: db
-#     image: postgres:13.7
-#     env_file:
-#       - env-local
-#     volumes:
-#       - db-data:/var/lib/postgresql/data:delegated
+  db:
+    container_name: db
+    image: postgres:13.7-alpine
+    env_file:
+      - env-local
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
-# volumes:
-#   db-data:
+volumes:
+  db-data:
