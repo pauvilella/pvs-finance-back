@@ -3,7 +3,7 @@ Test custom Django commands.
 """
 from unittest.mock import patch
 
-from psycopg2 import OperationalError as Psycopg2Error
+from psycopg2 import OperationalError as Psycopg2OpError
 
 from django.core.management import call_command
 from django.db.utils import OperationalError
@@ -28,7 +28,7 @@ class CommandTests(SimpleTestCase):
         # The first 2 times it will return Psycopg2 errror (PostgreSQL not even started)
         # The next 3 times it will return OperationError (PostgreSQL started but database not set up yet)
         # The 6th time, we simulate that the databse is ready, so we return True
-        patched_check.side_effect = [Psycopg2Error] * 2 + [OperationalError] * 3 + [True]
+        patched_check.side_effect = [Psycopg2OpError] * 2 + [OperationalError] * 3 + [True]
 
         call_command("wait_for_db")
 

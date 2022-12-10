@@ -26,3 +26,8 @@ Lint command:
 ```bash
 docker-compose run --rm app bash -c "flake8"
 ```
+
+Create super user:
+```bash
+docker-compose run --rm app bash -c "python manage.py createsuperuser"
+````
